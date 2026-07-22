@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-pokemon: 'PokemonGSC', monospace;
+        }
+
+        .menu-item{
+            @apply box-border py-1 px-1 border-3 border-transparent hover:border-red-400 cursor-pointer;
+        }
+
+        .pokemon {
+            @apply relative flex flex-row text-zinc-700 font-pokemon font-semibold text-xl [text-shadow:2px_2px_0_#a8a8a0] gap-2 cursor-pointer
+        }
+
+        .pokemon img{
+            @apply bg-red-500 border-r-3 border-red-100/30 px-1 py-1
+        }
+
+        .pokemon span{
+            @apply flex flex-row items-center
+        }
+
+        .pokemon-stats{
+            @apply w-1/2 py-1
+        }
+
+        .pokemon-stats:nth-last-child(n+3){
+            @apply border-b-3 border-dashed  border-[#99a8b6]
+        }
+
+        .pokemon-type{
+            @apply w-1/2 relative font-pokemon font-bold text-white text-center [text-shadow:2px_2px_0_#a8a8a0] py-1 px-1 border-[3px] border-black rounded-md overflow-hidden
+        }
+
+        .pokemon-type:before{
+            @apply w-full h-full absolute top-0 left-0 content-[''] border-[3px] border-b-black/30 border-r-black/30 border-t-white/40 border-l-white/40
+        }
+
+        .grass{
+            @apply bg-[#93e882] 
+        }
+
+        .poison{
+            @apply bg-[#df90f6]
+        }
+        
+    </style> 
+</head>
+<body class="w-screen h-screen flex">
+    <main class="w-3/4 bg-gray-600 border-r-[6px] border-black flex justify-center items-center">
+        <section class="size-7/9 relative bg-red-300 border-[6px] border-black overflow-hidden container">
+            <div class="size-full absolute top-0 left-0 flex flex-row z-20 pointer-events-none cover">
+                <div class="w-1/2 h-full absolute top-0 left-0 bg-[#4474c0] transition-left duration-[1.2s] cover-left"></div>
+                <div class="w-1/2 h-full absolute top-0 left-1/2 bg-white transition-left duration-[1.2s] cover-right">
+                    <img src="assets/images/logo_init.png" alt="" class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 logo-cover">
+                </div>
+                
+            </div>
+            <div class="size-full absolute flex flex-col top-0 left-0 z-10 bg-gray-100 pokedex">
+                <h1 class="w-full block bg-red-500 text-white font-pokemon text-4xl text-center [text-shadow:2px_2px_0_black] py-2 border-b-4 border-black">Pokemons</h1>
+                <div class="flex-1 min-h-0 p-7 flex flex-row items-center justify-center gap-6">
+                    <ul class="max-h-full bg-gray-100 border-black border-[6px] rounded-md overflow-y-auto z-10 list-pokemons">                        
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>001 Bulbasaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>002 Ivysaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>004 Charmander</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>004 Charizard</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>005 Squirtle</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>001 Bulbasaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>002 Ivysaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>004 Charmander</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>004 Charizard</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>005 Squirtle</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>001 Bulbasaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>002 Ivysaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>002 Ivysaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>004 Charmander</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>004 Charizard</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>005 Squirtle</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>001 Bulbasaur</span>
+                        </li>
+                        <li class="pokemon">
+                            <img src="assets/icons/pokeball_icon.png" alt="">
+                            <span>002 Ivysaur</span>
+                        </li>
+                        
+                        
+                    </ul>
+                    <div class="w-2/3 max-h-full flex flex-col justify-center items-center gap-4 h-full">
+                        <h2 class="w-full block bg-red-500 text-white font-pokemon text-3xl text-center [text-shadow:2px_2px_0_black] py-2 border-4 border-black pokemon-title">001 Bulbasaur</h2>
+                        <div class="w-full relative flex flex-row flex-wrap
+                                    font-pokemon font-semibold text-lg text-zinc-700 text-center [text-shadow:2px_2px_0_#a8a8a0] 
+                                    border-black border-4 rounded-md
+                                    before:absolute before:w-[15px] before:left-0 before:bg-red-500 before:h-full before:border-r-[5px] before:border-red-100/30
+                                    overflow-hidden pokemon-information">
+                            <span class="pokemon-stats">HP </span>
+                            <span class="pokemon-stats">45</span>
+                            <span class="pokemon-stats">Attack</span> 
+                            <span class="pokemon-stats">49</span>
+                            <span class="pokemon-stats">Defense</span>
+                            <span class="pokemon-stats">49</span>
+                            <span class="pokemon-stats">Speed Attack</span>
+                            <span class="pokemon-stats">65</span>
+                            <span class="pokemon-stats">Speed Defense</span>
+                            <span class="pokemon-stats">65</span>
+                            <span class="pokemon-stats">Speed</span>
+                            <span class="pokemon-stats">69</span>
+                        </div>
+                        <div class="w-full flex flex-row pokemon-type-container gap-2">
+                            <div class="pokemon-type grass">GRASS</div>
+                            <div class="pokemon-type poison">POISON</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <nav class="w-1/4 flex justify-center items-center bg-[#706b82]">
+        <div class="w-5/6
+                    flex flex-col justify-center items-center 
+                    bg-white 
+                    border-gray-400 border-[6px] 
+                    font-pokemon text-4xl [text-shadow:2px_2px_0_#a8a8a0]
+                    py-14
+                    gap-4">
+            <span class="menu-item btnPokemon">POKEDEX</span>
+            <span class="menu-item btnBag">TRAINERS</span>
+            <span class="menu-item btnAdd">ADD</span>
+            <span class="menu-item btnOption">OPTION</span>
+            <span class="menu-item btnExit">EXIT</span>
+        </div>
+    </nav>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
